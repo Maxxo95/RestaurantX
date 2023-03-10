@@ -1,0 +1,66 @@
+Pizza
+12
+899
+burger
+8
+799
+pizza
+15
+1099
+chiken tikka
+9
+699
+DietCoke
+3
+
+dietfanta
+2
+299
+Buffalo wings
+8
+899
+Pizza 
+12
+899
+taco
+3
+200
+pizza
+12
+899
+pizza2
+12 
+899
+pizza3
+13
+999
+pizza 4
+13
+1099
+Taco
+3
+299
+taco placero
+4
+599
+tacos dorados de pollo
+5
+599
+taco1
+3
+299
+taco dorados
+5
+600
+tacos de pollo
+4
+599
+Chocolate cake
+12
+1299
+Huevos al gusto
+6
+
+Taco de Milaneza
+3
+299
