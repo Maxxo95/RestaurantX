@@ -6,8 +6,8 @@
 package restaurantx;
 
 public  class Food {
-   private int id;
-    private String name = "Empty";
+    private int food_id = 0;
+    String name = "Empty";
     private String price = "0";
     private String cal = "0";
 
@@ -31,10 +31,22 @@ public  class Food {
         this.cal = name;
     }
 
-    public String setcal() {
+    public String getcal() {
         return cal;
     }
-
+     public Integer getid(){
+     return food_id;   
+    }
+    public void setid(int id){
+        this.food_id= id ;
+    }
+       public Food(int id,String name, String price, String cal) {
+        this.setname(name);
+        this.setprice(price);
+        this.setcal(cal);
+        this.setid(id);
+    }
+    
     public Food(String name, String price, String cal) {
         this.setname(name);
         this.setprice(price);

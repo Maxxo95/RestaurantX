@@ -5,6 +5,8 @@
  */
 package restaurantx;
 
+
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -62,10 +64,8 @@ public class RestaurantX {
         User user1 = new User();
         user1.userchek();
       //  Food item1 = new Food();
-        System.out.println("\nWhat would  you like to order?");
-        // FoodMenu fm = new FoodMenu();
-         //Food item = new Food();
-         //fm.toFood(item);
+        
+     
          
     }
 }

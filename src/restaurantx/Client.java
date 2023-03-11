@@ -5,11 +5,14 @@
  */
 package restaurantx;
 
+import java.util.Scanner;
+
 
 public class Client  {
+    String userInput;
     private int Client;
- private String bag = "nobag";
-  public Client(int client, String car){
+ bag bag = new bag ();
+  public Client(int client, bag bag){
       this.setNoClient(client);
       this.getNoClient();
        this.setbag(bag);
@@ -24,11 +27,24 @@ public class Client  {
     public void setNoClient(int client){
           this.Client = client;
     }
-    public String getbag (){
+    public bag getbag (){
         return bag;
     }
     
-    public void setbag(String bag){
+    public void setbag(bag bag){
           this.bag = bag;
     }
+ /*   
+  public Food Foodforthebag (){
+      Scanner scanner = new Scanner(System.in);
+      userInput = scanner.nextLine(); 
+      if(userInput.isEmpty()){
+          
+       return null;   
+          
+      } 
+      else{    
+      
+              }
+  }*/
 }

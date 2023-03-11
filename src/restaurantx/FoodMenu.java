@@ -11,14 +11,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 import restaurantx.Food;
 /**
  *
  * @author maxim
  */
-public  class FoodMenu extends User {
-
+public  class FoodMenu  {
+    HashMap<String, Integer> fooditems = new HashMap();
     protected int useruse = 0;
     public String filename = "FoodMenu.txt";
     String userInput; // strings to save user input maybe i could save them in an array from here and will safe me the paint
@@ -45,13 +46,56 @@ public  class FoodMenu extends User {
         return
     }
 */
+      public Food Foodforthebag (){
+       
+          System.out.println("Type + to add an item");  
+          String userSelection;
+      Scanner scanner = new Scanner(System.in); 
+      userSelection = scanner.nextLine();
+   
+   switch(userSelection){
+     
+          case "+":
+              System.out.println("what would you like to add?");
+           userInput = scanner.nextLine(); 
+      int index = nameArray.indexOf(userInput);
+      if(index != -1){
+          
+          System.out.println("added");
+           System.out.println("The total is " + fooditems.get(userInput) + " euro");
+          return null;
+      } else {
+          System.out.println("error");
+          return null;
+      }
+        
+          case "-":
+          System.out.println("removed");
+           return null;
+        
+          default:
+          System.out.println("thanks for using");
+           return null;
+         
+      }
+     
+   
+                   } 
+
+
+
+     
+          
+          
+          
+
     String getnewitem() { //use this getter  first to get user inputs 
+        
         try {
             Scanner scanners = new Scanner(System.in);
             System.out.println("Enter the name of the food you want to add \n");
             System.out.println("You must enter letters only");
-            userInput = scanners.nextLine();
-
+            userInput = scanners.nextLine();            
             System.out.println("Enter the price \n");
             System.out.println("numbers only");
             userInputprice = scanners.nextLine();
@@ -192,28 +236,31 @@ public  class FoodMenu extends User {
             System.out.println("Welcome to " + foodmenuname);
             String combo;
             
-            for (int i = 0; count >= i; ) {// my read is boolean int -1 if is empty no read so if equals 0 or more
+                  for (int i = 0; count >= i;) {// my read is boolean int -1 if is empty no read so if equals 0 or more
                 //  if (count <= 0) {
+                
                 name = myRead.readLine();
                 nameArray.add(name);
+                food.setname(name);
                 price = myRead.readLine();
                 priceArray.add(price);
+                food.setprice(price);
                 int ii = Integer.parseInt(price);
                 priceintArray.add(ii);
                 cal = myRead.readLine();
+                food.setcal(cal);
                 Food items = new Food(name,price,cal);
                 combo = name +  price ;
                 combArray.add(combo);
                 bagarray.add (items);
-         //      System.out.println(nameArray);
-         //       System.out.println(priceintArray);
-                  
+               // System.out.println(nameArray);
+              //  System.out.println(priceintArray);
+               fooditems.put(name, ii);
                 //System.out.println(priceArray);
                 if (name.equals(null)) {
                 } else {
 
-                    System.out.println("The " + name + " costs " + price + " euro & it contains " + cal + " calories");
-                
+                    System.out.println("The " + food.getname() + " costs " + food.getprice() + " euro & it contains " + food.getcal() + " calories");
                 }
             }
 
@@ -242,12 +289,6 @@ System.out.println(sc.nextLine());
         System.out.println(bagarray.get(3).getname()); // wooooooowwwww siii sisisi getting from arraylist 
     }
     
-   public void toFood(Food thisfood){
-      
-      
-            
-       bagarray.add(thisfood);
-       System.out.println(nameArray);
-   }
+   
 
 }

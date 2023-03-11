@@ -5,6 +5,7 @@ Pizza
 burger
 8
 799
+Buffalo wings
 8
 899
 Chocolate cake
