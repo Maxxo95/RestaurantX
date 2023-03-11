@@ -63,18 +63,20 @@ public class User {
                 }
 
                 Menu.printMenu();
-                Menu.Foodforthebag();
+             //   Menu.Foodforthebag();
             } else {
                 //list menus        
                 Menu.getMenu();
                 Menu.printMenu();
-                System.out.println("\nWhat would  you like to order?");
-                 Menu.Foodforthebag();
+             //   System.out.println("\nWhat would  you like to order?");
+               //  Menu.Foodforthebag();
                 //  System.out.println(food.getid());
             }
         } catch (Exception e) {
 
         }
+     
+        
     }
 
     public User(String name, String pass) {

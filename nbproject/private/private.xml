@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/maxim/Documents/NetBeansProjects/CAINT/CAINT/restaurantX/src/restaurantx/Food.java</file>
-            <file>file:/C:/Users/maxim/Documents/NetBeansProjects/CAINT/CAINT/restaurantX/src/restaurantx/RestaurantX.java</file>
-            <file>file:/C:/Users/maxim/Documents/NetBeansProjects/CAINT/CAINT/restaurantX/src/restaurantx/FoodMenu.java</file>
-            <file>file:/C:/Users/maxim/Documents/NetBeansProjects/CAINT/CAINT/restaurantX/src/restaurantx/User.java</file>
-            <file>file:/C:/Users/maxim/Documents/NetBeansProjects/CAINT/CAINT/restaurantX/src/restaurantx/userInterface.java</file>
+            <file>file:/C:/Users/maxim/Documents/Restaurant/RestaurantX/src/restaurantx/User.java</file>
+            <file>file:/C:/Users/maxim/Documents/Restaurant/RestaurantX/src/restaurantx/Client.java</file>
+            <file>file:/C:/Users/maxim/Documents/Restaurant/RestaurantX/src/restaurantx/RestaurantX.java</file>
+            <file>file:/C:/Users/maxim/Documents/Restaurant/RestaurantX/src/restaurantx/FoodMenu.java</file>
         </group>
     </open-files>
 </project-private>

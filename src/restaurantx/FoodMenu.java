@@ -33,6 +33,7 @@ public  class FoodMenu  {
     protected String names;
     protected String prices;
     protected String cals;
+           String userSelection;
     
    Food food = new Food();
     String userinput;
@@ -46,44 +47,47 @@ public  class FoodMenu  {
         return
     }
 */
-      public Food Foodforthebag (){
+      public void Foodforthebag (){
        
-          System.out.println("Type + to add an item");  
-          String userSelection;
-      Scanner scanner = new Scanner(System.in); 
-      userSelection = scanner.nextLine();
-   
-   switch(userSelection){
-     
-          case "+":
-              System.out.println("what would you like to add?");
-           userInput = scanner.nextLine(); 
-      int index = nameArray.indexOf(userInput);
-      if(index != -1){
-          
-          System.out.println("added");
-           System.out.println("The total is " + fooditems.get(userInput) + " euro");
-          return null;
-      } else {
-          System.out.println("error");
-          return null;
-      }
         
-          case "-":
-          System.out.println("removed");
-           return null;
-        
-          default:
-          System.out.println("thanks for using");
-           return null;
-         
-      }
+   //Client client = new Client();
+   //String userSelection = client.userSelection;
+   Scanner scanner = new Scanner(System.in); 
+   do {
+   System.out.println("Enter '+' to add, '-' to remove, or 'done' to exit:");
+    userSelection = scanner.nextLine();
+    switch (userSelection) {
+        case "+":
+            System.out.println("What would you like to add?");
+            String userInput = scanner.nextLine(); 
+            int index = nameArray.indexOf(userInput);
+            String temp;
+            System.out.print(nameArray);
+           // =fooditems.containsKey("pedro"
+            if (fooditems.containsKey(userInput)) {
+                System.out.println("Added.");
+                System.out.println("The total is " + fooditems.get(userInput) + " euro");
+            } else {
+                System.out.println("Error.");
+            }
+            break;
+        case "-":
+            System.out.println("Removed.");
+            break;
+        case "done":
+            System.out.println("Thanks for using!");
+            break;
+        default:
+            System.out.println("Invalid input. Please try again.");
+            break;
+    }
+} while (userSelection.equals("+") || userSelection.equals("-"));  }
      
    
-                   } 
+                   
 
 
-
+      
      
           
           
@@ -286,9 +290,41 @@ System.out.println(sc.nextLine());
        System.out.println(" is not a file");
     }
          */
-        System.out.println(bagarray.get(3).getname()); // wooooooowwwww siii sisisi getting from arraylist 
+       // System.out.println(bagarray.get(3).getname()); // wooooooowwwww siii sisisi getting from arraylist 
+        
+        Scanner scanner = new Scanner(System.in); 
+   do {
+   System.out.println("Enter '+' to add, '-' to remove, or 'done' to exit:");
+    userSelection = scanner.nextLine();
+    switch (userSelection) {
+        case "+":
+            System.out.println("What would you like to add?");
+            String userInput = scanner.nextLine(); 
+            int index = nameArray.indexOf(userInput);
+            String temp;
+          //  System.out.print(nameArray);
+           // =fooditems.containsKey("pedro"
+            if (fooditems.containsKey(userInput)) {
+                System.out.println("Added.");
+                System.out.println("The total is " + fooditems.get(userInput) + " euro");
+            } else {
+                System.out.println("Error.");
+            }
+            break;
+        case "-":
+            System.out.println("Removed.");
+            break;
+        case "done":
+            System.out.println("Thanks for using!");
+            break;
+        default:
+            System.out.println("Invalid input. Please try again.");
+            break;
+    }
+} while (userSelection.equals("+") || userSelection.equals("-"));  }
+     
     }
     
+    
    
-
-}
+  
