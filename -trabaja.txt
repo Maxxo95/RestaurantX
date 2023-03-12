@@ -1,0 +1,4 @@
+-trabaja
+hotdog
+5
+400

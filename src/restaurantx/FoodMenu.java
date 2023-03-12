@@ -34,7 +34,7 @@ public  class FoodMenu  {
     protected String prices;
     protected String cals;
            String userSelection;
-    
+    int sum;
    Food food = new Food();
     String userinput;
     public ArrayList<String> combArray = new ArrayList<String>();
@@ -42,7 +42,7 @@ public  class FoodMenu  {
     public ArrayList<String> priceArray = new ArrayList<String>();
     public ArrayList<Integer> priceintArray = new ArrayList<Integer>();
     public ArrayList<Food> bagarray = new ArrayList<Food>();
-    
+     public ArrayList<Integer> clientbag = new ArrayList<Integer>();
    /* String getUser(){
         return
     }
@@ -60,8 +60,8 @@ public  class FoodMenu  {
         case "+":
             System.out.println("What would you like to add?");
             String userInput = scanner.nextLine(); 
-            int index = nameArray.indexOf(userInput);
-            String temp;
+            //int index = nameArray.indexOf(userInput);
+          //  String temp;
             System.out.print(nameArray);
            // =fooditems.containsKey("pedro"
             if (fooditems.containsKey(userInput)) {
@@ -169,12 +169,12 @@ public  class FoodMenu  {
     }
 
     String getMenu() {
-
+String userinputs;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter - followed by the name of the Menu you want to select");
-        userinput = scanner.nextLine();//necesary to read for the loop after the name of the menu read 
-        userMenu = (userinput + ".txt");
-        File files = new File("C:\\Users\\maxim\\Documents\\NetBeansProjects\\CAINT\\CAINT\\restaurantX\\" + userinput + ".txt");
+        userinputs = scanner.nextLine();//necesary to read for the loop after the name of the menu read 
+        userMenu = (userinputs + ".txt");
+        File files = new File("C:\\Users\\maxim\\Documents\\Restaurant\\RestaurantX\\" + userinputs + ".txt");
 
         if (files.exists()) { // if exist dont modify if doesnt exist if create a new file for the reader above
             //HERE i can add the dell option \?
@@ -185,7 +185,7 @@ public  class FoodMenu  {
                 BufferedWriter myWriter = new BufferedWriter(new FileWriter(userMenu, false)); //this code starts the BufferedWriter
                 //true = append to the file
                 //false = overwrite the file
-                myWriter.write(userinput);              //the write method will put the different kind of vehicule type depends each case   
+                myWriter.write(userinputs);              //the write method will put the different kind of vehicule type depends each case   
                 myWriter.newLine();
                 myWriter.close();
 
@@ -306,7 +306,9 @@ System.out.println(sc.nextLine());
            // =fooditems.containsKey("pedro"
             if (fooditems.containsKey(userInput)) {
                 System.out.println("Added.");
-                System.out.println("The total is " + fooditems.get(userInput) + " euro");
+                sum += fooditems.get(userInput);
+                System.out.println("The total is " + sum + " euro");
+                clientbag.add(fooditems.get(userInput));
             } else {
                 System.out.println("Error.");
             }
@@ -315,7 +317,7 @@ System.out.println(sc.nextLine());
             System.out.println("Removed.");
             break;
         case "done":
-            System.out.println("Thanks for using!");
+            System.out.println("Thanks for using!"  );
             break;
         default:
             System.out.println("Invalid input. Please try again.");
