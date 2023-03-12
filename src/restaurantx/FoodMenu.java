@@ -14,12 +14,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import restaurantx.Food;
+
 /**
  *
  * @author maxim
  */
-public  class FoodMenu  {
-    HashMap<String, Integer> fooditems = new HashMap();
+public class FoodMenu {
+
+    HashMap<Integer, Integer> fooditems = new HashMap();
     protected int useruse = 0;
     public String filename = "FoodMenu.txt";
     String userInput; // strings to save user input maybe i could save them in an array from here and will safe me the paint
@@ -33,83 +35,79 @@ public  class FoodMenu  {
     protected String names;
     protected String prices;
     protected String cals;
-           String userSelection;
+    Food food = new Food();
+    String userSelection;
     int sum;
-   Food food = new Food();
+    private int food_id = 0;
+
     String userinput;
     public ArrayList<String> combArray = new ArrayList<String>();
     public ArrayList<String> nameArray = new ArrayList<String>();
     public ArrayList<String> priceArray = new ArrayList<String>();
     public ArrayList<Integer> priceintArray = new ArrayList<Integer>();
     public ArrayList<Food> bagarray = new ArrayList<Food>();
-     public ArrayList<Integer> clientbag = new ArrayList<Integer>();
-   /* String getUser(){
+    public ArrayList<Integer> clientbag = new ArrayList<Integer>();
+     public ArrayList<String> clientbagS = new ArrayList<String>();
+    public ArrayList<Integer> foodidArray = new ArrayList<Integer>();
+
+    /* String getUser(){
         return
     }
-*/
-      public void Foodforthebag (){
-       
-        
-   //Client client = new Client();
-   //String userSelection = client.userSelection;
-   Scanner scanner = new Scanner(System.in); 
-   do {
-   System.out.println("Enter '+' to add, '-' to remove, or 'done' to exit:");
-    userSelection = scanner.nextLine();
-    switch (userSelection) {
-        case "+":
-            System.out.println("What would you like to add?");
-            String userInput = scanner.nextLine(); 
-            //int index = nameArray.indexOf(userInput);
-          //  String temp;
-            System.out.print(nameArray);
-           // =fooditems.containsKey("pedro"
-            if (fooditems.containsKey(userInput)) {
-                System.out.println("Added.");
-                System.out.println("The total is " + fooditems.get(userInput) + " euro");
-            } else {
-                System.out.println("Error.");
+     */
+    public void Foodforthebag() {
+
+        //Client client = new Client();
+        //String userSelection = client.userSelection;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Enter '+' to add, '-' to remove, or 'done' to exit:");
+            userSelection = scanner.nextLine();
+            switch (userSelection) {
+                case "+":
+                    System.out.println("What would you like to add?");
+                    String userInput = scanner.nextLine();
+                    //int index = nameArray.indexOf(userInput);
+                    //  String temp;
+                    System.out.print(nameArray);
+                    // =fooditems.containsKey("pedro"
+                    if (fooditems.containsKey(userInput)) {
+                        System.out.println("Added.");
+                        System.out.println("The total is " + fooditems.get(userInput) + " euro");
+                    } else {
+                        System.out.println("Error.");
+                    }
+                    break;
+                case "-":
+                    System.out.println("Removed.");
+                    break;
+                case "done":
+                    System.out.println("Thanks for using!");
+                    break;
+                default:
+                    System.out.println("Invalid input. Please try again.");
+                    break;
             }
-            break;
-        case "-":
-            System.out.println("Removed.");
-            break;
-        case "done":
-            System.out.println("Thanks for using!");
-            break;
-        default:
-            System.out.println("Invalid input. Please try again.");
-            break;
+        } while (userSelection.equals("+") || userSelection.equals("-"));
     }
-} while (userSelection.equals("+") || userSelection.equals("-"));  }
-     
-   
-                   
 
+    Food getnewitem() { //use this getter  first to get user inputs 
 
-      
-     
-          
-          
-          
-
-    String getnewitem() { //use this getter  first to get user inputs 
-        
         try {
             Scanner scanners = new Scanner(System.in);
             System.out.println("Enter the name of the food you want to add \n");
             System.out.println("You must enter letters only");
-            userInput = scanners.nextLine();            
+            userInput = scanners.nextLine();
+            food.setname(userInput);
             System.out.println("Enter the price \n");
             System.out.println("numbers only");
             userInputprice = scanners.nextLine();
-
+            food.setprice(userInputprice);
             System.out.println("Enter the number of calories of the product \n");
             System.out.println("numbers only");
             userInputcal = scanners.nextLine();
-
+            food.setcal(userInputcal);
             comb = userInput + " " + userInputprice + " " + userInputcal;
-            //  System.out.println(comb);
+            System.out.println(food_id);
         } catch (Exception e) {
             System.out.println("You disoveid the rules");
         }
@@ -119,8 +117,8 @@ public  class FoodMenu  {
             //true = append to the file
             //false = overwrite the file
 
-            myWriter.write(userInput + ("\n") + userInputprice + ("\n")); //the write method will put the licence + the car model in the first line                                    
-            myWriter.write(userInputcal);              //the write method will put the different kind of vehicule type depends each case   
+            myWriter.write(food.getname() + ("\n") + food.getprice() + ("\n")); //the write method will put the licence + the car model in the first line                                    
+            myWriter.write(food.getcal());              //the write method will put the different kind of vehicule type depends each case   
             myWriter.newLine();
             myWriter.close();                                 //this saves changes to the file
 
@@ -148,7 +146,7 @@ public  class FoodMenu  {
         }  //If the file doesnt exist or is corrupted the code print this message    
      }*/
 
-        return comb; //return the input in the comb variable with spaces to print it
+        return food; //return the input in the comb variable with spaces to print it
 
     }
 
@@ -169,15 +167,16 @@ public  class FoodMenu  {
     }
 
     String getMenu() {
-String userinputs;
+        String userinputs;
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter - followed by the name of the Menu you want to select");
+        System.out.println("Please type \"-\" followed by the name of the Menu you want to select");
         userinputs = scanner.nextLine();//necesary to read for the loop after the name of the menu read 
         userMenu = (userinputs + ".txt");
-        File files = new File("C:\\Users\\maxim\\Documents\\Restaurant\\RestaurantX\\" + userinputs + ".txt");
+        File files = new File("C:\\Users\\maxim\\Documents\\Restaurant\\RestaurantX\\" + userMenu);
 
         if (files.exists()) { // if exist dont modify if doesnt exist if create a new file for the reader above
             //HERE i can add the dell option \?
+
         } else {
 
             try {      //try with catch required for bufferwriter
@@ -191,7 +190,7 @@ String userinputs;
 
             } catch (Exception e) {
 
-                System.out.println("Error writing to file " + filename); //in case of error will print this message 
+                System.out.println("Error writing to file " + userMenu); //in case of error will print this message 
                 //end of the code
             }
 
@@ -208,8 +207,8 @@ String userinputs;
             //true = append to the file
             //false = overwrite the file
 
-            myWriter.write(userInput + ("\n") + userInputprice + ("\n")); //the write method will put the licence + the car model in the first line                                    
-            myWriter.write(userInputcal);              //the write method will put the different kind of vehicule type depends each case   
+            myWriter.write(food.getname() + ("\n") + food.getprice() + ("\n")); //the write method will put the licence + the car model in the first line                                    
+            myWriter.write(food.getcal());              //the write method will put the different kind of vehicule type depends each case   
             myWriter.newLine();
             myWriter.close();                                 //this saves changes to the file
 
@@ -239,32 +238,36 @@ String userinputs;
             String foodmenuname = myRead.readLine();
             System.out.println("Welcome to " + foodmenuname);
             String combo;
-            
-                  for (int i = 0; count >= i;) {// my read is boolean int -1 if is empty no read so if equals 0 or more
+
+            for (int i = 0; count >= i;) {// my read is boolean int -1 if is empty no read so if equals 0 or more
                 //  if (count <= 0) {
-                
+
                 name = myRead.readLine();
-                nameArray.add(name);
                 food.setname(name);
+                nameArray.add(name);
                 price = myRead.readLine();
-                priceArray.add(price);
                 food.setprice(price);
+                priceArray.add(price);
                 int ii = Integer.parseInt(price);
                 priceintArray.add(ii);
                 cal = myRead.readLine();
                 food.setcal(cal);
-                Food items = new Food(name,price,cal);
-                combo = name +  price ;
+
+                combo = name + price;
                 combArray.add(combo);
-                bagarray.add (items);
-               // System.out.println(nameArray);
-              //  System.out.println(priceintArray);
-               fooditems.put(name, ii);
+
+                // System.out.println(nameArray);
+                //  System.out.println(priceintArray);
+                food_id++;
+                foodidArray.add(food_id);
+                food.setid(food_id);
+                fooditems.put(food_id, ii);
                 //System.out.println(priceArray);
+                bagarray.add(food);
                 if (name.equals(null)) {
                 } else {
 
-                    System.out.println("The " + food.getname() + " costs " + food.getprice() + " euro & it contains " + food.getcal() + " calories");
+                    System.out.println(food.getid() + ".- " + "The " + food.getname() + " costs " + food.getprice() + " euro & it contains " + food.getcal() + " calories");
                 }
             }
 
@@ -290,43 +293,47 @@ System.out.println(sc.nextLine());
        System.out.println(" is not a file");
     }
          */
-       // System.out.println(bagarray.get(3).getname()); // wooooooowwwww siii sisisi getting from arraylist 
-        
-        Scanner scanner = new Scanner(System.in); 
-   do {
-   System.out.println("Enter '+' to add, '-' to remove, or 'done' to exit:");
-    userSelection = scanner.nextLine();
-    switch (userSelection) {
-        case "+":
-            System.out.println("What would you like to add?");
-            String userInput = scanner.nextLine(); 
-            int index = nameArray.indexOf(userInput);
-            String temp;
-          //  System.out.print(nameArray);
-           // =fooditems.containsKey("pedro"
-            if (fooditems.containsKey(userInput)) {
-                System.out.println("Added.");
-                sum += fooditems.get(userInput);
-                System.out.println("The total is " + sum + " euro");
-                clientbag.add(fooditems.get(userInput));
-            } else {
-                System.out.println("Error.");
+        // System.out.println(bagarray.get(3).getname()); // wooooooowwwww siii sisisi getting from arraylist 
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("Enter '+' to add, '-' to remove, or 'done' to finish:");
+            userSelection = scanner.nextLine();
+            switch (userSelection) {
+                case "+":
+                    System.out.println("Enter the number of the product you would like to add");
+                    int userInput = scanner.nextInt();
+                    //  scanner.nextInt();
+                    scanner.nextLine();
+                    //   foodidArray.indexOf(userInput);
+
+                    String temp;
+                    //  System.out.print(nameArray);
+
+                    //     if (foodidArray.contains(userInput)) {
+                    if (fooditems.containsKey(userInput)) {
+                    //    System.out.println(clientbagS.toString() + " Added.");
+                        
+                        sum += fooditems.get(userInput);
+                      //  System.out.println("The total is " + sum + " euro");
+                        clientbag.add(fooditems.get(userInput));
+                        clientbagS.add(nameArray.get(userInput-1));
+                        System.out.println(clientbagS.toString() + " Added.");
+                         System.out.println("The total is " + sum + " euro");
+                    } else {
+                        System.out.println("Error.");
+                    }
+                    break;
+                case "-":
+                    System.out.println("Removed.");
+                    break;
+                case "done":
+                    System.out.println("Thanks for using, your total is " +  sum + " euro");
+                    break;
+                default:
+                    System.out.println("Invalid input.");
+                    break;
             }
-            break;
-        case "-":
-            System.out.println("Removed.");
-            break;
-        case "done":
-            System.out.println("Thanks for using!"  );
-            break;
-        default:
-            System.out.println("Invalid input. Please try again.");
-            break;
+        } while (userSelection.equals("+") || userSelection.equals("-"));
     }
-} while (userSelection.equals("+") || userSelection.equals("-"));  }
-     
-    }
-    
-    
-   
-  
+
+}

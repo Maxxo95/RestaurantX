@@ -17,3 +17,6 @@ Taco de Milaneza
 Huarache 
 6
 599
+cereal
+2
+300

@@ -28,8 +28,8 @@ public class User {
     //ArrayList<String> pass = new ArrayList<String> ();
     //String name;
     // String pass;
-    File userinput = new File("C:\\Users\\maxim\\Documents\\Max\\logrestaurantx.txt");
-    String csvPath = "C:\\Users\\maxim\\Documents\\Max\\logrestaurantx.txt";
+  private  File userinput = new File("C:\\Users\\maxim\\Documents\\Max\\logrestaurantx.txt");
+    
 //Scanner scanner = new Scanner(ReadCSV.class.getResourceAsStream(csvPath + "\\myFile.csv"));
 
     void userchek() {
@@ -50,12 +50,12 @@ public class User {
             FoodMenu Menu = new FoodMenu();
             if (username.equals(usernames) && password.equals(passw)) {
 
-                System.out.println(username + password);
+               // System.out.println(username + password);
                 Menu.getMenu();
                 Menu.getnumberofitems();
 
-                int useruse = Menu.useruse;
-                for (int i = 1; i <= useruse; i++) { //here we will write the menu if the user wants to add items
+               
+                for (int i = 1; i <= Menu.useruse; i++) { //here we will write the menu if the user wants to add items
                     // food.setid(i);
                     Menu.getnewitem();// from add , getter to get new info with return value in this case        String  getnewitem (){}  i can actually do all in this 
                     //  Menu1.writetoaArray();  // get the item and write it to the main file FoodMenu   

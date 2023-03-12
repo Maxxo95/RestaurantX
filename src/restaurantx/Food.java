@@ -10,6 +10,7 @@ public  class Food {
     String name = "Empty";
     private String price = "0";
     private String cal = "0";
+    
 
     public void setname(String name) { //it takes the value from somwhere else
         this.name = name;
@@ -40,6 +41,8 @@ public  class Food {
     public void setid(int id){
         this.food_id= id ;
     }
+    
+    
        public Food(int id,String name, String price, String cal) {
         this.setname(name);
         this.setprice(price);

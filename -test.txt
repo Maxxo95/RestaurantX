@@ -1,6 +1,4 @@
-cereal
-2
-300
+-test
 random
 6
 1
